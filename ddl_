@@ -1,0 +1,55 @@
+
+CREATE TABLE com_dhl_HeaderSales (
+  email NVARCHAR(40) NOT NULL,
+  firstname NVARCHAR(40),
+  lastname NVARCHAR(40),
+  country_code NVARCHAR(3),
+  createon DATE_TEXT DEFAULT CURRENT_TIMESTAMP,
+  deliverydate DATE_TEXT,
+  orderstatus_id INTEGER,
+  imagenurl NVARCHAR(100),
+  PRIMARY KEY(email)
+);
+
+CREATE TABLE com_dhl_SalesItems (
+  ID NVARCHAR(36) NOT NULL,
+  name NVARCHAR(40),
+  description NVARCHAR(40),
+  releasedate TIMESTAMP_TEXT DEFAULT CURRENT_TIMESTAMP,
+  discontinuedate TIMESTAMP_TEXT,
+  price DECIMAL(12, 2),
+  height DECIMAL(12, 2),
+  weidth DECIMAL(15, 3),
+  depth DECIMAL(12, 2),
+  quantity DECIMAL(16, 2),
+  unitofmesure_Id NVARCHAR(2),
+  Header_email NVARCHAR(40),
+  PRIMARY KEY(ID)
+);
+
+CREATE TABLE com_dhl_UnitOfMesure (
+  Id NVARCHAR(2) NOT NULL,
+  name NVARCHAR(5000),
+  PRIMARY KEY(Id)
+);
+
+CREATE TABLE com_dhl_orderstatus (
+  id INTEGER NOT NULL,
+  status NVARCHAR(15),
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE com_dhl_V_Country (
+  code NVARCHAR(3) NOT NULL,
+  name NVARCHAR(15),
+  PRIMARY KEY(code)
+);
+
+CREATE TABLE com_dhl_Customer (
+  name NVARCHAR(40) NOT NULL,
+  Adress NVARCHAR(25),
+  Phone NVARCHAR(25),
+  email NVARCHAR(25),
+  PRIMARY KEY(name)
+);
+

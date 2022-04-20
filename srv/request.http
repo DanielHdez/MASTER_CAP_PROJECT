@@ -1,0 +1,72 @@
+###############  READ   ############################
+
+#####READ  general Header #####
+GET http://localhost:4004/sales-orders/Header
+
+#####READ Header con Filtro #####
+GET http://localhost:4004/sales-orders/Header('jmckeag0@house.gov')
+
+#####READ  general Items #####
+GET http://localhost:4004/sales-orders/Items
+
+#####READ Items order #####
+GET http://localhost:4004/sales-orders/Items(Header_email='jmckeag0@house.gov')
+
+###############  CREATE   ############################
+##### CREATE HEADER #####
+POST http://localhost:4004/sales-orders/Header HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "dhdezleon@gmail.com",
+    "firstname": "Daniel",
+    "lastname": "Hernandez", 
+    "country_code": "Es",
+    "createon": "2022-01-13",
+    "orderstatus_id": 1,
+    "deliverydate": "2022-01-01",
+    "imagenurl": "/orders/webapp/assets/customer-8.png"
+  
+}
+
+##### CREATE ITEM ##### 
+
+POST http://localhost:4004/sales-orders/Items  HTTP/1.1
+Content-Type: application/json
+
+{
+     "name": "Pepe",
+     "description": "Pollo a la Pepetitoria ",
+     "price": "10",
+     "height": "15",
+     "weidth": "12",
+     "quantity": "10",
+     "unitofmesure_Id": "gr",
+     "Header_email": "jmckeag0@house.gov"
+                    
+
+}          
+
+###############  UPDATE  ############################
+
+
+### Update Header
+PUT http://localhost:4004/sales-orders/Header('jmckeag0@house.gov') HTTP/1.1
+Content-Type: application/json
+
+{
+   "firstname": "Roberto Tolete",
+   "orderstatus_id" : 3
+}
+
+### Update Item
+PUT http://localhost:4004/sales-orders/Items('2a33c260-033d-4b1c-ac0b-0bfe41732149') HTTP/1.1
+Content-Type: application/json
+
+{
+   "name": "Roberto Tolete",
+   "price" : 200000
+}
+
+#################  DELETE  ######################
+DELETE http://localhost:4004/sales-orders/Header('fsylvaine1@php.net')
