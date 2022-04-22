@@ -11,3 +11,10 @@ user: MASTER_CAP_PROJECT $ git config --global user.email "dhdezleon@gmail.com"
 user: MASTER_CAP_PROJECT $ git remote add cap https://github.com/DanielHdez/MASTER_CAP_PROJECT.git
 
 user: MASTER_CAP_PROJECT $ git add .
+
+user: MASTER_CAP_PROJECT $ git commit -m "Commit del Programa"
+
+user: MASTER_CAP_PROJECT $ git push cap master
+user: MASTER_CAP_PROJECT $ cds db/schema.cds -2 sql > ddl__
+
+user: MASTER_CAP_PROJECT $ npm start

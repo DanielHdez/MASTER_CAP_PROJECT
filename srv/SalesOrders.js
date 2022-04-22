@@ -134,7 +134,7 @@ srv.on("UPDATE", "Headers", async (req) => {
         .transaction(req)
         .run([
             UPDATE(HeaderSales, req.data.email).set({
-                firstname: req.data.firstname,
+                firstname: req.data.firstname
                 /*lastname: req.data.lastname,
                 country_code: req.data.country_code,
                 createon: req.data.createon,
